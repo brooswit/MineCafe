@@ -1,4 +1,4 @@
-var Compliment = require('./shared/compliment');
+var Compliment = require('./../shared/compliment');
 
 var bodyParser  = require('body-parser');
 var express = require('express');
