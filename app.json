@@ -1,7 +1,7 @@
 {
-  "name": "Node.js Getting Started",
-  "description": "A barebones Node.js app using Express 4",
-  "repository": "https://github.com/heroku/node-js-getting-started",
-  "logo": "http://node-js-sample.herokuapp.com/node.svg",
+  "name": "MineCafe",
+  "description": "A multiplayer building and adventuring game built with Node.js/Epress 4",
+  "repository": "https://github.com/awatemonosan/MineCafe",
+  "logo": "http://minecafe.herokuapp.com/node.svg",
   "keywords": ["node", "express", "static"]
 }
