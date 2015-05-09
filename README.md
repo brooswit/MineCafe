@@ -13,12 +13,20 @@ MineCafe is built on node and the app is served to the client using express. The
     - [x] World drawer.
     - [x] Voxel drawer.
 - [ ] First person controls.
-- [ ] Add console.
-- [ ] World editing.
+  - [ ] Input System
+    - [ ] Move with ASDW
+    - [ ] Look with Mouse
+    - [ ] Place blocks with left click
+    - [ ] Remove blocks with right click
 - [ ] World saving to flat file.
-- [ ] User login
-- [ ] Administration panel
-- [ ] Option for saving to MongoDB
+- [ ] UI
+  - [ ] Main screen
+  - [ ] Login
+  - [ ] User login
+  - [ ] Settings
+  - [ ] Add console.
+  - [ ] Administration panel.
+  - [ ] Option for saving to MongoDB
 - [ ] Multiplayer
   - [ ] Keep track of connected clients
   - [ ] Add chat
