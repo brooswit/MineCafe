@@ -12,5 +12,5 @@ app.use(express.static(__dirname + './../client'));
 
 app.listen(app.get('port'), function() {
   console.log('MineCafe running on port ' + app.get('port'));
-  console.log('  -' + Compliment()');
+  console.log('  -' + Compliment());
 });
