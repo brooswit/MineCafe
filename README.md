@@ -15,11 +15,6 @@ MineCafe is built on node and the app is served to the client using express. The
 - [ ] Database Support
   - [ ] SQL-Lite
   - [ ] Mongo
-- [ ] World generation
-  - [ ] Flatworld
-  - [ ] Perlin
-  - [ ] Perlin w/ Caves
-  - [ ] Biomes
 - [ ] First person controls.
   - [ ] Input System
     - [ ] Move with ASDW
@@ -44,6 +39,11 @@ MineCafe is built on node and the app is served to the client using express. The
     - [ ] Make client send requested changes to server instead of locally
     - [ ] Send world changes to all connected clients
     - [ ] World saving to database
+  - [ ] World generation
+    - [ ] Flatworld
+    - [ ] Perlin
+    - [ ] Perlin w/ Caves
+    - [ ] Biomes
   - [ ] Entity system
     - [ ] keep entity system synced between client and server 
   - [ ] Make player enttiy.
