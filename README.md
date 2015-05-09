@@ -13,6 +13,7 @@ MineCafe is built on node and the app is served to the client using express. The
     - [x] World drawer.
     - [x] Voxel drawer.
 - [ ] First person controls.
+- [ ] Add console.
 - [ ] World editing.
 - [ ] World saving to flat file.
 - [ ] User login
@@ -20,6 +21,7 @@ MineCafe is built on node and the app is served to the client using express. The
 - [ ] Option for saving to MongoDB
 - [ ] Multiplayer
   - [ ] Keep track of connected clients
+  - [ ] Add chat
   - [ ] Keep current world state saved on server
   - [ ] Make server authorative
     - [ ] Disable world.force on clients.
@@ -27,4 +29,9 @@ MineCafe is built on node and the app is served to the client using express. The
     - [ ] Send world changes to all connected clients
   - [ ] Entity system
     - [ ] keep entity system synced between client and server 
-  - [ ] Make players have their own entities.
+  - [ ] Make player enttiy.
+- [ ] More tiles
+- [ ] More entitie types
+- [ ] Plugins
+- [ ] Master server reporting
+- [ ] Cheater protection
