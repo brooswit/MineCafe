@@ -9,16 +9,17 @@
 
 ==============================================================================*/
 
-define(['shared/lib/decorateParams', 'shared/lib/eventify'],
-function ( DP, Eventify ) {
+define([
+  'shared/lib/decorateParams',
+  'shared/lib/eventify',
+  'shared/lib/three'
+],
+function ( DP, Eventify, ___ ) {
   var VoxelType = function( params ){ params=DP( params );
-    Eventify(this);
-    
+    Eventify.enable(this);
     this.id=params.id || -1;
-    this.name=params.name || 'UNNAMED'
+    this.name=params.name || 'UNNAMED';
   }
-
-  Voxel.Null = Null;
 
   return VoxelType;
 });

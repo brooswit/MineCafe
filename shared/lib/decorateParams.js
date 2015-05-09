@@ -1,12 +1,20 @@
 // Universal params decorator.
 
-define(['shared/lib/three'], function(THREE){
+define(['shared/lib/three'], function(___){
   return function ( params ) {
-    params=params||{};
-    params.getPos = function( ) {
-      this.pos = this.pos === undefined ? THREE.Vector3(this.x,this.y,this.z) : this.pos;
-    };
-
-  return params;
+    var newParams = {};
+    if(params!==undefined){
+      for (var key in params) {
+          //copy all the fields
+          newParams[key] = params[key];
+      }
+      if(params.x!==undefined && params.y!==undefined && params.z!==undefined){
+        newParams.pos = new THREE.Vector3(params.x,params.y,params.z);
+        delete params.x; delete params.y; delete params.z;
+      } else if(params.pos!==undefined){
+        newParams.pos = new THREE.Vector3(params.pos.x,params.pos.y,params.pos.z);
+      }
+    }
+    return newParams;
   }
 });

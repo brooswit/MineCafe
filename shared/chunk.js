@@ -10,48 +10,75 @@ v0.1
 
 ==============================================================================*/
 
-var Null = { };
-Null.getLocalVoxel = function(){ return Voxel.Null; };
-Null.getVoxel      = function(){ return Voxel.Null; };
-Null.setLocalVoxel = function(){ };
-Null.setVoxel      = function(){ };
 
-define(['shared/lib/decorateParams', 'shared/lib/three', 'shared/lib/eventify', 'shared/voxel'],
-function (DP, THREE, Eventify, Voxel) {
+var NullChunk;
+
+define([
+  'shared/lib/decorateParams',
+  'shared/lib/eventify',
+  'shared/lib/three',
+
+  'shared/voxel'
+], function (DP, Eventify, ___, Voxel) {
+  NullChunk = NullChunk || {
+    getVoxel : function(){ return Voxel.Null; },
+    getVoxelAt      : function(){ return Voxel.Null; },
+    setVoxel : function(){ return Voxel.Null; },
+    setVoxelAt      : function(){ return Voxel.Null; }
+  };
+  Eventify.enable(NullChunk);
   var Chunk = function( params ){ params=DP( params );
     Eventify.enable(this);
 
-    this._world=params.world;
-    this._offset=params.offset;
-    this._voxels=[];
+    this.world=params.world;
+    this.offset=params.offset;
+    this.voxels=[];
+
+    for( var x=0; x<this.world.chunkSize; x++ ){
+      this.voxels[x]=[]
+      for( var y=0; y<this.world.chunkSize; y++ ){
+        this.voxels[x][y]=[];
+        for( var z=0; z<this.world.chunkSize; z++ ){
+          this.voxels[x][y][z]=Voxel.Null;
+        }
+      }
+    }
+  };
+  //helpers
+  Chunk.prototype.worldspaceToChunkspace = function( pos ){
+    return pos.sub( this.offset );
   };
 
+  //methods
   Chunk.prototype.getVoxel = function( params ){ params=DP( params );
-
-    if( this._voxels[params.pos.x]                             === undefined
-     || this._voxels[params.pos.x][params.pos.y]               === undefined
-     || this._voxels[params.pos.x][params.pos.y][params.pos.z] === undefined) return Voxel.Null;
-    return this._voxels[params.pos.x][params.pos.y][params.pos.z];
+    return this.voxels[params.pos.x][params.pos.y][params.pos.z];
   };
 
   Chunk.prototype.getVoxelAt      = function( params ){ params=DP( params );
-    return this.getVoxel( params.getPos().sub( this._offset ) );
+    return this.getVoxel({pos: this.worldspaceToChunkspace()});
   };
 
   Chunk.prototype.setVoxel = function( params ){ params=DP( params );
-    if(this._voxels[params.pos.x]               ===undefined) this._voxels[params.pos.x]               = [];
-    if(this._voxels[params.pos.x][params.pos.y] ===undefined) this._voxels[params.pos.x][params.pos.y] = [];
+    params.pos.floor();
+    params.world=this.world;
+    params.chunk=this;
 
-    params.world=this._world;
-    params.chunk=this._chunk;
-
-    this._voxels[params.pos.x][params.pos.y][params.pos.z] = new Voxel(params);
+    this.voxels[params.pos.x][params.pos.y][params.pos.z].trigger('remove');
+    this.voxels[params.pos.x][params.pos.y][params.pos.z] = new Voxel({
+      voxelType : params.voxelType,
+      world     : this.world,
+      chunk     : this
+    });
+    this.voxels[params.pos.x][params.pos.y][params.pos.z].trigger('set');
   };
   Chunk.prototype.setVoxelAt      = function( params ){ params=DP( params );
-    this.setVoxel( params.getPos().sub( this._offset ) );
+    this.setVoxel({
+      pos: this.worldspaceToChunkspace(params.pos),
+      voxelType: params.voxelType
+    });
   };
 
-  Chunk.Null = Null;
+  Chunk.Null = NullChunk;
 
   return Chunk;
 });

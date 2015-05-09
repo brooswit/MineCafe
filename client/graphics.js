@@ -28,8 +28,11 @@ v0.1
 
 ==============================================================================*/
 
-define(['shared/lib/decorateParams', 'shared/lib/eventify'],
-function (DP, Eventify) {
+define([
+  'shared/lib/decorateParams',
+  'shared/lib/eventify',
+  'shared/lib/three'
+], function (DP, Eventify, ___) {
   var graphics = function( params ){ params=DP( params );
     Eventify.enable( this );
 
@@ -37,9 +40,9 @@ function (DP, Eventify) {
       this.renderer.setPixelRatio( window.devicePixelRatio );
       this.renderer.setSize( window.innerWidth, window.innerHeight );
       document.body.appendChild( this.renderer.domElement );
-
+    
     this.camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 1, 1000 );
-      this.camera.position.z = 400;
+      this.camera.position.z = 4;
 
     this.scene = new THREE.Scene();
 
