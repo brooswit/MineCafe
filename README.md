@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/awatemonosan/MineCafe.png?label=ready&title=Ready)](https://waffle.io/awatemonosan/MineCafe)
 # MineCafe
 A 3D sandbox game built with three.js and node that may or may not have anything to do with mining...
 
