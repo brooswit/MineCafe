@@ -1,14 +1,3 @@
-/*==============================================================================
-
-====   Changes  ====
-v0.1
-  Added method:
-    setVoxelAt
-    getVoxelAt
-    GetChunkAt
-TODO:
-  Refactor this for multiWorld support
-==============================================================================*/
 define([
   'shared/lib/decorateParams',
   'shared/lib/eventify',

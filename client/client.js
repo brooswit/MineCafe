@@ -20,9 +20,10 @@ require([
   'shared/voxelTypes',
   'shared/voxelType',
 
+  'client/lib/input',
   'client/graphics',
   'client/worldDrawer'
-], function( DP, Eventify, ___, World, VoxelTypes, VoxelType, Graphics, WorldDrawer ){
+], function( DP, Eventify, ___, World, VoxelTypes, VoxelType, Input, Graphics, WorldDrawer ){
   Eventify.enable(clientApp);
 
   clientApp.graphics = clientApp.graphics=new Graphics();

@@ -1,4 +1,3 @@
-
 define([
   'shared/lib/decorateParams',
   'shared/lib/eventify',

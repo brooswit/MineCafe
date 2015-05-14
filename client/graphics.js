@@ -1,33 +1,3 @@
-/*==============================================================================
-
-== Graphics Library v0.1 ==
-An eventified graphics library.
-
-==== Properties ====
-renderer : THREE.WebGLRenderer
-camera : THREE.PerspectiveCamera
-scene : new THREE.Scene
-
-====   Methods  ====
-on( eventName, callBack )
-  Registers an event
-trigger( eventName )
-  Triggers an event
-
-====   Events   ====
-resize
-  when window is resized.
-render
-  when scene is rendered.
-
-====   Changes  ====
-v0.1
-  Eventified with Eventify
-  Added properties: renderer, camera and scene
-  Added events: resize and render
-
-==============================================================================*/
-
 define([
   'shared/lib/decorateParams',
   'shared/lib/eventify',
@@ -64,18 +34,3 @@ define([
   }
   return graphics;
 });
-
-
-
-/*
-  var geometry = new THREE.BoxGeometry( 200, 200, 200 );
-
-  var texture = THREE.ImageUtils.loadTexture( 'textures/crate.gif' );
-  texture.anisotropy = renderer.getMaxAnisotropy();
-
-  var material = new THREE.MeshBasicMaterial( { map: texture } );
-
-  mesh = new THREE.Mesh( geometry, material );
-  scene.add( mesh );
-*/
-
