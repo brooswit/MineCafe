@@ -15,6 +15,7 @@ require([
   'shared/lib/decorateParams',
   'shared/lib/eventify',
   'shared/lib/three',
+  'shared/lib/lumber',
 
   'shared/world',
   'shared/voxelTypes',
@@ -23,7 +24,10 @@ require([
   'client/lib/input',
   'client/graphics',
   'client/worldDrawer'
-], function( DP, Eventify, ___, World, VoxelTypes, VoxelType, Input, Graphics, WorldDrawer ){
+], function( DP, Eventify, ___, ___, World, VoxelTypes, VoxelType, Input, Graphics, WorldDrawer ){
+  Lumber.log('Initializing MineCafe');
+  Lumber.prefix.push('  ');
+  Lumber.log('Eventifing');
   Eventify.enable(clientApp);
 
   clientApp.graphics = clientApp.graphics=new Graphics();
@@ -39,7 +43,7 @@ require([
     graphics : clientApp.graphics,
     world    : clientApp.world
   });
-
+  Lumber.prefix.pop( );
   //TESTS
   if(DEBUG){
     clientApp.voxelTypes.register(new VoxelType({id:-1,name:'test'}));
