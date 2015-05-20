@@ -1,14 +1,25 @@
+/* 
+* @Author: awate
+* @Date:   2015-05-18 14:09:35
+* @Last Modified by:   awate
+* @Last Modified time: 2015-05-19 20:42:43
+*/
+
 define([
   'shared/lib/decorateParams',
   'shared/lib/eventify',
   'shared/lib/three',
-  'shared/lib/lumber'
+  'shared/lib/lumber',
+  'client/lib/jquery'
 ], function (DP, Eventify, ___, ___) {
   var graphics = function( params ){ params=DP( params );
     Lumber.log('Initializing Graphics');
     Lumber.prefix.push('  ');
     Lumber.log('Eventifying');
     Eventify.enable( this );
+
+    Lumber.log('Modifying the dom');
+    $('body')
 
     Lumber.log('Setting up renderer');
     Lumber.prefix.push('  ');

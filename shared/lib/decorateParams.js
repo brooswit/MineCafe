@@ -1,3 +1,9 @@
+/* 
+* @Author: awate
+* @Date:   2015-05-18 14:09:35
+* @Last Modified by:   awate
+* @Last Modified time: 2015-05-19 10:51:42
+*/
 // Universal params decorator.
 
 define(['shared/lib/three'], function(___){
