@@ -1,4 +1,9 @@
 [![Stories in Ready](https://badge.waffle.io/awatemonosan/MineCafe.png?label=ready&title=Ready)](https://waffle.io/awatemonosan/MineCafe)
+
+
+**UPDATE:** This project has been halted due to lack of support for a UDP-like networking solution built into web browsers.
+
+
 # MineCafe
 A 3D sandbox game built with three.js and node that may or may not have anything to do with mining...
 
